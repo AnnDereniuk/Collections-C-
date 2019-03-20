@@ -39,7 +39,7 @@ namespace Collections
                 Console.WriteLine("Here are your values:");
                 foreach (int num in integerItems)
                 {
-                    Console.Write(num + " ");
+                    Console.Write(num + ", ");
                 }
 
             Console.WriteLine();
@@ -50,7 +50,7 @@ namespace Collections
                 int max = (int)integerItems[0];
                 foreach (int num in integerItems)
                 {
-                    Console.Write(num + " ");
+                    Console.Write(num + ", ");
                 }
 
             Console.WriteLine();
