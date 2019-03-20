@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace Collections
 {
-    class Program
+    class List
     {
         static void Main(string[] args)
         {
