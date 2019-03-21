@@ -7,7 +7,7 @@ namespace Collections
 {
     class StudentsNMarks
     {
-        static void main(string[] args)
+        static void Main(string[] args)
         {
             string stop = "stop";
             string delimiter = ":";
@@ -32,39 +32,36 @@ namespace Collections
                 if (enteredText.Equals(stop))
                 {
                     Console.WriteLine("");
-                    break;
                 }
-               
-                 if (enteredText.Contains(delimiter))
-                 {
+
+                if (enteredText.Contains(delimiter))
+                {
                     delimiterIndex = Array.IndexOf(text, delimiter);
                     existsDelimiter = true;
                     for (int i = 0; i < delimiterIndex; i++)
                     {
                         if (Char.IsDigit(text[i]))
                         {
-                            Console.WriteLine(WRONG_FORMAT_MESSAGE);
+                            Console.WriteLine(WRONG_FORMAT_MESSAGE + "1");
                             isSurnameCorrect = false;
                             break;
                         }
 
                     }
-
-                    for (int i = delimiterIndex + 1; i < text.Length; i++)
-                    {
-                        mark = Convert.ToInt32(text[i]);
-                        if (!Char.IsDigit(text[i]) || (mark > 5) || (mark < 0))
-                        {
-                            Console.WriteLine(WRONG_FORMAT_MESSAGE);
-                            isMarkCorrect = false;
-                            break;
-                        }
-                    }
-                 }
+                }
+                  
+                 
+                  else if (!Char.IsDigit(text[text[text.Length - 1]]) || (mark >= 5) || (mark <= 0))
+                  { mark = Convert.ToInt32(text[text.Length-1]);
+                      Console.WriteLine(WRONG_FORMAT_MESSAGE+"2");
+                      isMarkCorrect = false;
+                      break;
+                  }
+                  
                
                  else if (!existsDelimiter)
                  {
-                    Console.WriteLine(WRONG_FORMAT_MESSAGE);
+                    Console.WriteLine(WRONG_FORMAT_MESSAGE+"3");
                  }
 
 
@@ -73,7 +70,7 @@ namespace Collections
                     surname = enteredText.Substring(0, delimiterIndex - 1);
                     mark = Convert.ToInt32(enteredText.Substring((delimiterIndex + 1),(enteredText.Length-delimiterIndex)));
                     Console.WriteLine("Surname: " + surname + ", Mark: " + mark);
-
+                    students.Add(surname, mark);
                 }
             }
         }
