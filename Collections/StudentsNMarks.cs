@@ -18,8 +18,9 @@ namespace Collections
             string surname="";
             int mark=-1;
             String strmark = "";
+            bool loop = true;
 
-            while (true)
+            while (loop)
             {
                 Console.WriteLine(MESSAGE);
                 string enteredText = Console.ReadLine();
@@ -31,6 +32,7 @@ namespace Collections
                 if (enteredText.Equals(stop))
                 {
                     Console.WriteLine("");
+                    loop = false;
                 }
 
                 else if (enteredText.Contains(delimiter))
@@ -57,15 +59,16 @@ namespace Collections
                         }
                       //  else isMarkCorrect = false;
                     }
-                    if (isMarkCorrect)
+
+                    try
                     {
-                        try
-                        {
-                            mark = Int32.Parse(strmark);
-                        }
-                        catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+                        Int32.TryParse(strmark, out mark);
                     }
-                    else Console.WriteLine(WRONG_FORMAT_MESSAGE + "3");
+                    catch (Exception)
+                    {
+                        Console.WriteLine(WRONG_FORMAT_MESSAGE + "3");
+                        isMarkCorrect = false;
+                    }
 
                     // if (existsDelimiter&&isSurnameCorrect&&isMarkCorrect)
                     // {
@@ -78,9 +81,7 @@ namespace Collections
 
 
             }
+            Console.ReadKey();
         }
-
-
-
     }
 }
